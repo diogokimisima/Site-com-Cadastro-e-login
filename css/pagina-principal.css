@@ -8,7 +8,7 @@
 
 #topo {
     width: 100%;
-    max-width: 1024px;
+    max-width: 1324px;
     margin: 0 auto ;
 }
 
@@ -27,7 +27,7 @@
 
 .limitar-secao {
     width: 100%;
-    max-width: 1024px;
+    max-width: 1324px;
     margin: 0 auto;
 }
 
@@ -53,7 +53,7 @@
     color: #233032;
     font-weight: 600;
     padding: 10px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .topo-links a:hover,
@@ -70,7 +70,7 @@
 }
 
 .container-banner {
-    max-width: 1024px;
+    max-width: 1324px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -217,7 +217,7 @@
 
 .linhas-da-tabela td {
     width: 250px;
-    max-width: 1024px;
+    max-width: 1324px;
     text-align: center;
     font-weight: 500;
     padding: 15px;

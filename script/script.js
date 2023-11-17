@@ -40,4 +40,15 @@ function validateForm() {
     return true;
 }
 
+function exibirSenha() {
+    var senhaInput = document.getElementById("password");
+    var checkbox = document.getElementById("exibirSenha");
+
+    if (checkbox.checked) {
+        senhaInput.type = "text";
+    } else {
+        senhaInput.type = "password";
+    }
+}
+
 

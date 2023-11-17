@@ -8,6 +8,9 @@
 <body>
     <nav>
         <ul>
+            <?php 
+            session_start();
+            ?>
             <li><a href="user/list_user.php">Usuários</a></li>
             <li><a href="sobre/list_sobre.php">Sobre</a></li>
             <li><a href="prod/list_prod.php">Produtos</a></li>
