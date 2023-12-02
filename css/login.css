@@ -124,36 +124,3 @@ select {
     margin-bottom: 20px;
     
 }
-
-@media only screen and (max-width: 800px) {
-    main {
-        padding:30px;
-    }
-    article {
-        max-height:100%;
-        height:auto;
-    }
-    .area-logia {
-        flex-direction:column;
-    }
-    .area-imagem img {
-        width:200px
-    }
-    .login {
-        margin-top:50px;
-    }
-    .login h2 {
-        font-size:30px;
-    }
-    .login p {
-        font-size:20px;
-    }
-}
-@media only screen and (max-width: 500px) {
-    .login h2 {
-        font-size:25px;
-    }
-    .login p {
-        font-size:15px;
-    }
-}

@@ -12,7 +12,6 @@
     <?php
     $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     $op = filter_input(INPUT_GET, 'op', FILTER_DEFAULT);
-    // var_dump($id, $op);
 
     $arquivo = "user.json";
     if (file_exists($arquivo)) {

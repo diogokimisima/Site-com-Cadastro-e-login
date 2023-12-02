@@ -13,50 +13,60 @@
   
   #topo {
     width: 100%;
+    max-width: 1324px;
+    margin: 0 auto ;
+}
+
+.topo {
+    width: 100%;
     padding: 0px 20px;
-    background-color: #2f86d6;
-    border-bottom: 1px solid #f1f3f7;
-  }
-  
-  .container {
+    background-color: white;
+}
+
+.container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 0px;
-  }
-  
-  .topo-logo,
-  .rodape-logo {
+    padding: 20px 0px;
+}
+
+.limitar-secao {
+    width: 100%;
+    max-width: 1324px;
+    margin: 0 auto;
+}
+
+.topo-logo, .rodape-logo {
     display: flex;
-  }
-  
-  .topo-logo img,
-  .rodape-logo img {
+}
+
+.topo-logo img, .rodape-logo img {
     width: 80px;
-  }
-  
-  .topo-logo div,
-  .rodape-logo div {
+}
+
+.topo-logo div, .rodape-logo div {
     margin-left: 15px;
-  }
-  
-  .topo-logo p,
-  .rodape-logo p {
-    color: #fff;
+}
+
+.topo-logo p, .rodape-logo p {
     font-weight: 600;
-  }
-  
-  .topo-links a {
-    font-size: 18px;
-    padding: 10px;
+    color: #2f86d6;
+}
+
+.topo-links a {
     text-decoration: none;
-    font-weight: 600;
-    color: #fff;
-  }
-  
-  .topo-links a:hover {
     color: #233032;
-  }
+    font-weight: 600;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.topo-links a:hover,
+.container-copyright span,
+.secao-informacoes h2 span,
+.secao-tabela-de-planos h2 span {
+    color: #2f86d6;
+}
   
   #conteudo-principal {
     width: 100%;

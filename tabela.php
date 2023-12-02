@@ -11,27 +11,47 @@
     <title>AlfaTech - Tabela</title>
 </head>
 <body>
-    <div> 
-        <div id="topo">
-            <div class="container limitar-secao">
-              <div class="topo-logo">
-                <img src="./assets/logo-icone-escuro.png" alt="logotipo"/>
-                <div>
-                  <h1>AlfaTech</h1>
-                  <p>Soluções em hospedagem</p>
-                </div>
-              </div>
-              <div class="topo-links">
-                <a href="home.html">HOME</a>
-                <a href="home.html#informacoes">INFORMAÇÕES</a>
-                <a href="home.html#planos">PLANOS</a>
-                <a href="home.html#contato">CONTATO</a>
-              </div>
-            </div>
-          </div id="topo">
-    </div>
+
+<?php
+  session_start();
+
+  if (isset($_SESSION['user']) && $_SESSION['user']['nivel'] === 'admin') {
+    $isAdmin = true;
+  } else {
+    $isAdmin = false;
+  }
+  ?>
+
+     <header id="topo">
+    <nav class="container limitar-secao">
+      <div class="topo-logo">
+        <img src="./assets/logo-icone.png" alt="logotipo" />
+        <div>
+          <h1>AlfaTech</h1>
+          <p>Soluções em hospedagem</p>
+        </div>
+      </div>
+      <div class="topo-links">
+        <a href="./index.php">INICIO</a>
+        <!-- <a href="#informacoes">INFORMAÇÕES</a>
+        <a href="#planos">PLANOS</a> -->
+        <a href="tabela.php">PREÇOS</a>
+        <!-- <a href="#contato">CONTATO</a> -->
+        <?php if ($isAdmin): ?>
+          <a href="intranet/user/list_user.php">USUÁRIOS</a>
+          <a href="intranet/sobre/cad_sobre.php">EDITAR</a>
+        <?php endif; ?>
+
+        <a href="intranet/index.php"> LOGIN</a>
+        <a href="intranet/user/cad_user.php?new=1<?php if ($isAdmin)
+          echo '&admin=true'; ?>"> CADASTRO</a>
+
+      </div>
+    </nav>
+  </header>
 
     <div id="conteudo-principal" class="limitar-secao">
+
       <table>
         <thead>
           <tr class="cabeçalho-da-tabela">

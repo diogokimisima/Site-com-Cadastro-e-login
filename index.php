@@ -16,10 +16,8 @@
 <body>
 
   <?php
-  // Inicie a sessão
   session_start();
 
-  // Verifique se o usuário está logado e tem o nível de administrador
   if (isset($_SESSION['user']) && $_SESSION['user']['nivel'] === 'admin') {
     $isAdmin = true;
   } else {
@@ -38,15 +36,14 @@
         </div>
       </div>
       <div class="topo-links">
-        <a href="#informacoes">INFORMAÇÕES</a>
-        <a href="#planos">PLANOS</a>
+        <a href="./index.php">INICIO</a>
+        <!-- <a href="#informacoes">INFORMAÇÕES</a>
+        <a href="#planos">PLANOS</a> -->
         <a href="tabela.php">PREÇOS</a>
-        <a href="#contato">CONTATO</a>
+        <!-- <a href="#contato">CONTATO</a> -->
         <?php if ($isAdmin): ?>
           <a href="intranet/user/list_user.php">USUÁRIOS</a>
-          <a href="intranet/sobre/list_sobre.php">SOBRE</a>
-          <a href="intranet/prod/list_prod.php">PRODUTOS</a>
-          <a href="intranet/serv/list_servicos.php">SERVIÇOS</a>
+          <a href="intranet/sobre/cad_sobre.php">EDITAR</a>
         <?php endif; ?>
 
         <a href="intranet/index.php"> LOGIN</a>
@@ -91,27 +88,32 @@
         Existem diversos serviços de hospedagem de sites. Porque você deve <span>nos escolher?</span>
       </h2>
       <div class="container-informacoes limitar-secao">
+      <?php
+                $arquivo = "intranet/sobre/sobre.json";
+                if(file_exists($arquivo)){
+                    $arq = file_get_contents($arquivo);
+                    $arq = json_decode($arq, true);
+                }
+            ?>
         <div>
           <img src="./assets/icone-engrenagens.png" alt="ícone" />
-          <h3>Fácil de configurar</h3>
-          <p>
-            Facilmente configurável em plataformas CMS populares - Wordpress,
-            Joomia...
-          </p>
+          <h3>Facilmente configurável em plataformas CMS populares - Wordpress,
+            Joomia...</h3>
         </div>
         <div>
           <img src="./assets/cloud-icone.png" alt="ícone" />
-          <h3>Servidores 100% Online</h3>
-          <p>
-            Serviços que operam 100% do tempo para manter o seu site online...
-          </p>
+          <h3>Serviços que operam 100% do tempo para manter o seu site online...</h3>
         </div>
         <div>
-          <img src="./assets/icone-suporte.png" alt="ícone" />
+          <!-- <img src="./assets/icone-suporte.png" alt="ícone" />
           <h3>Suporte 24/7</h3>
           <p>
             Suporte altamente treinado e especializado em soluções de Cloud...
-          </p>
+          </p> -->
+          <img src="assets/<?php echo $arq['sobre_img'] ?>" alt="ícone" />
+          <h3>
+          <?php echo $arq['sobre_desc'] ?>
+          </h3>
         </div>
       </div>
     </section>
@@ -189,7 +191,7 @@
     <section id="segundo-anuncio" class="secao-segundo-anuncio">
       <div class="container limitar-secao">
         <h2>Mais de 20.000 pessoas confiam na Spark! Seja um deles você também!</h2>
-        <a href="tabeladeprecos.html">
+        <a href="tabela.php">
           TABELA DE PREÇOS
         </a>
       </div>
@@ -216,6 +218,8 @@
     </div>
 
   </main>
+
+ 
 </body>
 
 </html>

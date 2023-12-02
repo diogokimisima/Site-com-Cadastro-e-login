@@ -23,8 +23,8 @@ function validateForm() {
         loginError.innerHTML = "";
     }
 
-    if (password.length < 8) {
-        passwordError.innerHTML = "A senha deve ter pelo menos 8 caracteres.";
+    if (password.length < 5) {
+        passwordError.innerHTML = "A senha deve ter pelo menos 5 caracteres.";
         return false;
     } else {
         passwordError.innerHTML = "";
@@ -51,4 +51,19 @@ function exibirSenha() {
     }
 }
 
+function confirmDelete(id, nome) {
+    var result = confirm("Tem certeza que deseja excluir o usuário '" + nome + "'?");
+    if (result) {
+        var arquivo = "user.json";
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                alert("Usuário excluído com sucesso!");
+                location.reload();
+            }
+        };
+        xhttp.open("GET", "list_user.php?delete=" + id, true);
+        xhttp.send();
+    }
+}
 

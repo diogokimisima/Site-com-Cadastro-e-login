@@ -13,7 +13,6 @@
     <?php
     session_start();
 
-    // Verificar se o usuário está logado como administrador
     if (isset($_GET['admin']) && $_GET['admin'] === 'true') {
         $isAdmin = true;
     } else {
@@ -36,21 +35,18 @@
                     $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
                     if (isset($dados['cadastrar'])):
-                        // Validar se todos os campos foram preenchidos
                         if (in_array("", $dados)) {
                             echo "<h1> Todos os campos devem ser preenchidos!</h1>";
                             header("Refresh: 2,  url=cad_user.php");
                             exit();
                         }
 
-                        // Verificar se o login já existe
                         $arquivo = "user.json";
 
                         if (file_exists($arquivo)) {
                             $arq = file_get_contents($arquivo);
                             $arq = json_decode($arq, true);
 
-                            // Verificar se o login já existe no arquivo
                             foreach ($arq as $usuario) {
                                 if ($usuario['login'] == $dados['login']) {
                                     echo "<h1 style='color: #FF6347'> O login já está em uso!</h1>";
@@ -59,7 +55,6 @@
                                 }
                             }
 
-                            // Se o login não existe, adicionar os dados
                             $dados['password'] = md5($dados['password']);
                             unset($dados['cadastrar']);
 
@@ -75,7 +70,6 @@
                                 }
                             }
                         } else {
-                            // Se o arquivo não existe, criar um novo com os dados
                             $dados = array($dados);
                             $dados = json_encode($dados);
 
@@ -117,7 +111,6 @@
                             <?php if ($isAdmin): ?>
                                 <option value="admin">Admin</option>
                             <?php endif; ?>
-                            <option value="gerente">Gerente</option>
                             <option value="usuario">Usuário</option>
                         </select>
                         <span id="nivel-error" class="error-message"></span>
